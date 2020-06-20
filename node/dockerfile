@@ -1,0 +1,17 @@
+FROM ubuntu
+# MAINTAINERは廃止予定らしいのでLABELを使う
+LABEL maintainer="k.miyakewiss1@gmail.com"
+# 余計なパッケージを入れないよう --no-install-recommends をつける
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    nodejs \
+    npm \
+    curl
+RUN npm install -g n && n lts
+RUN apt-get purge nodejs npm -y
+# 作業ディレクトリを設定する、相対パスのスタートになったりする
+WORKDIR /nodedocker
+# /から始めると絶対パス、なしだとWORKDIRからの相対パスにコピーする
+COPY src /nodedocker/
+# CMDのデフォの引数として扱われる
+ENTRYPOINT ["node"]
+CMD ["main.js"]
