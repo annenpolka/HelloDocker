@@ -1,4 +1,4 @@
-FROM ubuntu
-MAINTAINER annenpolka <k.miyakewiss1@gmail.com>
-RUN apt-get update
-CMD ["echo", "Hello Masterminds"]
+FROM ubuntu # 元にするイメージ名
+MAINTAINER annenpolka <k.miyakewiss1@gmail.com> # メンテナの情報（オプション）
+RUN apt-get update # ベースイメージで実行するコマンド
+CMD ["echo", "Hello Masterminds"] # コンテナで実行するコマンド
