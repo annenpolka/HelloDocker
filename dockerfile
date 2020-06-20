@@ -1,4 +1,8 @@
-FROM ubuntu # 元にするイメージ名、DockerHubからpullしてくる
-MAINTAINER annenpolka <k.miyakewiss1@gmail.com> # メンテナの情報（オプション）
-RUN apt-get update # ベースイメージで実行するコマンド
-CMD ["echo", "Hello Masterminds"] # コンテナで実行するコマンド
+# 元にするイメージ名、DockerHubからpullしてくる
+FROM ubuntu
+# メンテナの情報（オプション）
+MAINTAINER annenpolka <k.miyakewiss1@gmail.com>
+# ベースイメージで実行するコマンド
+RUN apt-get update
+# コンテナで実行するコマンド
+CMD ["echo", "Hello Masterminds"]
