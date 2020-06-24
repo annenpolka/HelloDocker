@@ -15,4 +15,3 @@ services:
             POSTGRES_USER: admin
             POSTGRES_PASSWORD: admin
             # POSTGRES_DBを省略するとユーザー名と同じ名前のDBが作られる
-            POSTGRES_DB: test
