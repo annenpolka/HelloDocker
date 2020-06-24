@@ -1,0 +1,20 @@
+# 参考にしたサイト: https://crudzoo.com/blog/docker-postgres/
+# docker-composeのバージョン
+version: '3'
+# 動かすサービスをservicesの中に書いていく
+services:
+    # 役割を名前にすればわかりやすい
+    db:
+        # ディレクトリ内のdockerfileを元にbuildする
+        build:
+        # 外部から接続するときのポート番号:Dockerコンテナ内からアクセスするときのポート番号
+        ports:
+            - 5433:5432
+        # postgresの公式イメージはdocker-composeでユーザー名などを設定できる
+        environment:
+            POSTGRES_USER: admin
+            POSTGRES_PASSWORD: admin
+            # POSTGRES_DBを省略するとユーザー名と同じ名前のDBが作られる
+            POSTGRES_DB: test
+
+
