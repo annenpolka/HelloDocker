@@ -10,7 +10,7 @@ services:
         # 外部から接続するときのポート番号:Dockerコンテナ内からアクセスするときのポート番号
         ports:
             - 5433:5432
-        # postgresの公式イメージはdocker-composeでユーザー名などを設定できる
+        # postgresの公式イメージはdocker-composeでユーザー名などを環境変数として設定できる
         environment:
             POSTGRES_USER: admin
             POSTGRES_PASSWORD: admin
