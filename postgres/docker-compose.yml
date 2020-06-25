@@ -7,7 +7,7 @@ services:
     db:
         # ディレクトリ内のdockerfileを元にbuildする
         build: .
-        # 外部から接続するときのポート番号:Dockerコンテナ内からアクセスするときのポート番号
+        # 外部から接続するときのポート番号:Dockerコンテナ内でのポート番号
         ports:
             - 5433:5432
         # postgresの公式イメージはdocker-composeでユーザー名などを環境変数として設定できる
@@ -15,3 +15,7 @@ services:
             POSTGRES_USER: admin
             POSTGRES_PASSWORD: admin
             # POSTGRES_DBを省略するとユーザー名と同じ名前のDBが作られる
+        # ホスト側のファイルを持ち込む volumesは同期するので永続化とかできる？
+        volumes:
+            # ホスト側のディレクトリ:コンテナ側のディレクトリ
+            - ./sql:/sql
